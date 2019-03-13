@@ -1,0 +1,73 @@
+.bacBox .box {
+    width: 100%;
+    height: 300rpx;
+    position: absolute;
+    top: 0
+}
+
+.bacBox .bacImg {
+    margin: auto
+}
+
+.bacBox .mainData {
+    position: absolute;
+    top: 150rpx;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    height: 200rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin: auto
+}
+
+.bacBox .more {
+    position: absolute;
+    top: 430rpx;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    margin: auto
+}
+
+.bacBox .mainData .value,
+.bacBox .mainData .title {
+    width: 100%;
+}
+
+.bacBox .value {
+    font-size: 26px
+}
+
+.bacBox .mainData .value {
+    font-weight: bold;
+    font-size: 32px
+}
+
+.list .listItem {
+    margin-top: 1px;
+    padding: 24rpx
+}
+
+.list .listItem .icon {
+    width: 46rpx;
+    height: 46rpx;
+    border-radius: 50%;
+    background: #fbece6;
+    margin-right: 24rpx
+}
+
+.list .listItem .icon .iconfont {
+    color: #de6d40
+}
+
+.logout .main_btn.btnHover {
+    color: #ffffff;
+    background: #ffd9ca
+}

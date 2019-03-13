@@ -1,0 +1,31 @@
+<view id="replenish" class="p15">
+    <view class="deviceMsg bg-ff br12 p15">
+        <view class="deviceMacno">
+            <span>设备编号：</span>
+            <span class="cc">{{deviceMsg.macno}}</span>
+        </view>
+        <view class="deviceAddress">
+            <span>设备地址：</span>
+            <span class="cc">{{deviceMsg.address}}</span>
+        </view>
+    </view>
+    <view class="mt15 goodsList bg-ff br12 p15">
+        <view class="mb15">商品明细</view>
+        <view class="list ptb15 bt-e5 flex-cfs" wx:for="{{deviceMsg.goods}}">
+            <view class="image">
+                <image class="goodsImg" src="{{item.img}}" mode="widthFix" lazy-load="true"></image>
+            </view>
+            <view class="message">
+                <view class="title">{{item.title}}</view>
+                <view class="num">
+                    <span class="cc">补货数量：</span>
+                    {{item.num}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btns mt40">
+        <button class="main_btn1 mb15" bindtap="refresh">刷新</button>
+        <button class="main_btn" bindtap="confirm">确认补货</button>
+    </view>
+</view>

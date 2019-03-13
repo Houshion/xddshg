@@ -1,0 +1,21 @@
+<view id="changPass">
+    <view class="oldPass flex-cfs bg-ff bb-e5 plr10">
+        <view class="label">旧密码：</view>
+        <view class="input">
+            <input type="password" bindinput="getOldPass" placeholder="请输入原密码" />
+        </view>
+    </view>
+    <view class="newPass flex-cfs bg-ff bb-e5 plr10">
+        <view class="label">新密码：</view>
+        <view class="input">
+            <input type="password" bindinput="getNewPass" placeholder="请输入新密码" />
+        </view>
+    </view>
+    <view class="newPassAgain flex-cfs bg-ff bb-e5 plr10">
+        <view class="label">新密码：</view>
+        <view class="input">
+            <input type="password" bindinput="getNewPassAgain" placeholder="请再次输入新密码" />
+        </view>
+    </view>
+    <button class="main_btn" bindtap="confirm">确认</button>
+</view>

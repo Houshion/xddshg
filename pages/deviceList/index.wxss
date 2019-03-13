@@ -1,0 +1,13 @@
+.deviceMsg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message {
+    width: 85%
+}
+
+.status {
+    width: 15%;
+}

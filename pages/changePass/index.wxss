@@ -1,0 +1,13 @@
+#changPass .label {
+    width: 80px;
+}
+
+#changPass .input {
+    width: 100%;
+}
+
+#changPass .main_btn {
+    width: 95%;
+    margin: auto;
+    margin-top: 50px
+}

@@ -1,0 +1,48 @@
+@import "./style/base.wxss";
+@import "./style/iconfont.wxss";
+/*通用样式开始*/
+
+.cerr {
+    color: #ff0000
+}
+
+.csuc {
+    color: #00ff00
+}
+
+.cfff {
+    color: #ffffff
+}
+
+.cccc {
+    color: #cccccc
+}
+
+.bfff {
+    background: #ffffff
+}
+
+.arrow-icon {
+    width: 12rpx;
+    height: 22rpx;
+}
+
+.loading {
+    width: 100%;
+}
+
+.loading .loadImg {
+    width: 40%;
+    margin: 0 30%;
+    /* -webkit-animation: loading 1s; */
+    animation: loading 2s linear 0s infinite
+}
+
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,55 @@
+<wxs module='filter' src='../../utils/tools.wxs'></wxs>
+<view id="replenish" class="p15">
+    <view class="mb15 goodsList bg-ff br12 p15">
+        <view class="mb15">
+            <view>设备编号：{{order.macno}}</view>
+            <view>手　　机：{{order.mobile}}</view>
+        </view>
+        <view class="list ptb15 bt-e5 flex-csb" wx:for="{{order.goods}}">
+            <view class="flex-cfs">
+                <view class="image">
+                    <image class="goodsImg" src="{{item.img}}" mode="widthFix" lazy-load="true"></image>
+                </view>
+                <view class="message">
+                    <view class="title">{{item.title}}</view>
+                    <view class="num">
+                        <span class="price">￥{{item.price}}</span>
+                    </view>
+                </view>
+            </view>
+            <view class="num cc">x{{item.num}}</view>
+        </view>
+        <view class="bt-e5 pt15 flex-csb">
+            <view class="total">共{{order.num}}件商品</view>
+            <view class="total">
+                <view class="discount ta-right cc" wx:if="{{order.discount_money!='0.00'}}">
+                    优惠金额： {{order.discount_money}}
+                </view>
+                <view class="pay">
+                    实付金额：
+                    <span class="price">￥{{order.pay_price}}</span>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="deviceMsg bg-ff br12 p15">
+        <view class="orderNo">
+            <span>订单编号：</span>
+            <span class="cc">{{order.order_number}}</span>
+        </view>
+        <view class="deviceAddress">
+            <span>订单状态：</span>
+            <span class="cc">
+                {{order.status==1?'开门中':order.status==2?'待付款':order.status==3?'已付款':'已取消'}}
+            </span>
+        </view>
+        <!-- <view class="replenishTime">
+            <span>订单时间：</span>
+            <span class="cc">{{order.time}}</span>
+        </view> -->
+        <view class="replenisher" wx:if="{{order.status==3}}">
+            <span>支付时间：</span>
+            <span class="cc">{{filter.format(order.pay_time,'Y-m-d H:i:s')}}</span>
+        </view>
+    </view>
+</view>

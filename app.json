@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/open/index",
+    "pages/replenish/index",
+    "pages/replenishList/index",
+    "pages/scan/index",
+    "pages/changePass/index",
+    "pages/orderDetail/index",
+    "pages/goodsList/index",
+    "pages/index/index",
+    "pages/deviceList/index",
+    "pages/orderList/index",
+    "pages/replenishDetail/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#cd663d",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#fff",
+    "navigationBarTitleText": "小豆丁RFID售货机"
+  }
+}

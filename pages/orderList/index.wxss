@@ -1,0 +1,35 @@
+.goodsList .message .num {
+    font-size: 24rpx
+}
+
+.goodsList .list:last-child {
+    padding-bottom: 0
+}
+
+.goodsList .image {
+    margin-right: 15rpx
+}
+
+.goodsList .image .goodsImg {
+    width: 100rpx;
+    border: 1px #e5e5e5 solid;
+    border-radius: 10rpx;
+    padding: 10rpx;
+}
+
+.goodsList .price {
+    color: red
+}
+
+.goodsList .pay {
+    color: green
+}
+
+.goodsList .unpay {
+    color: #de6d40
+}
+
+.loading .loadImg {
+    width: 40px;
+    margin: auto
+}

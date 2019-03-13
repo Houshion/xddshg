@@ -1,0 +1,22 @@
+<view id="replenish" class="p15">
+    <navigator class="mb15" url="/pages/goodsList/index?id={{item.macno}}" wx:for="{{deviceList}}">
+        <view class="deviceMsg bg-ff br12 p15">
+            <view class="message">
+                <view class="deviceAddress">
+                    <span>设备地址：</span>
+                    <span class="cc">{{item.address}}</span>
+                </view>
+                <view class="deviceMacno">
+                    <span>设备编号：</span>
+                    <span class="cc">{{item.macno}}</span>
+                    <span class="ml15 {{deviceMsg.status_name=='缺货'?'cerr':'csuc'}}">
+                        {{deviceMsg.status_name}}
+                    </span>
+                </view>
+            </view>
+            <view class="status ta-right {{deviceMsg.status_name=='缺货'?'cerr':'csuc'}}">
+                {{item.status_name}}
+            </view>
+        </view>
+    </navigator>
+</view>

@@ -1,0 +1,38 @@
+<view id="orderList" class="p15">
+    <view class="mb15 goodsList bg-ff br12 p15" wx:for="{{orderList}}">
+        <navigator class="" target="" url="/pages/orderDetail/index?id={{item.order_id}}" hover-class="none" open-type="navigate">
+            <view class="mb15 flex-csb">
+                <view class="title">订单编号：{{item.order_number}}</view>
+                <view class="btn {{item.status==2?'unpay':'pay'}}">
+                    {{item.status==1?'开门中':item.status==2?'待付款':item.status==3?'已付款':'已取消'}}
+                </view>
+            </view>
+            <view class="list ptb15 bt-e5 flex-csb" wx:for="{{item.goods}}" wx:for-index="gindex" wx:for-item="gitem">
+                <view class="flex-cfs">
+                    <view class="image">
+                        <image class="goodsImg" src="{{gitem.img}}" mode="widthFix" lazy-load="true"></image>
+                    </view>
+                    <view class="message">
+                        <view class="title">{{gitem.title}}</view>
+                        <view class="num">
+                            <span class="price">￥{{gitem.price}}</span>
+                        </view>
+                    </view>
+                </view>
+                <view class="num cc">x{{gitem.num}}</view>
+            </view>
+            <view class="bt-e5 pt15 flex">
+                <view class="total w30">共{{item.num}}件商品</view>
+                <view class="total w30">
+                    金额：
+                    <span class="price">￥{{item.total_price}}</span>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="loading box" wx:if="{{loading}}" hover-class="none" hover-stop-propagation="false">
+        <view class="box">
+            <image class="loadImg" src="../../image/loading.png" mode="widthFix" lazy-load="true"></image>
+        </view>
+    </view>
+</view>

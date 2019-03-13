@@ -1,0 +1,29 @@
+.deviceMsg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goodsList .message .num {
+    font-size: 24rpx
+}
+
+.goodsList .list:last-child {
+    padding-bottom: 0
+}
+
+.goodsList .image {
+    margin-right: 15rpx
+}
+
+.goodsList .image .goodsImg {
+    width: 100rpx;
+    border: 1px #e5e5e5 solid;
+    border-radius: 10rpx;
+    padding: 10rpx;
+}
+
+.btns button {
+    width: 100%;
+    margin: 10rpx auto;
+}

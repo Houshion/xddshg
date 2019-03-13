@@ -1,0 +1,17 @@
+<view class="open vh100 bg-ff">
+    <view class="top">
+        <view class="logo">
+            <image class="logoImg" src="../../image/logo.png" mode="widthFix" lazy-load="true"></image>
+        </view>
+        <view class="macno">设备编号：{{macno}}</view>
+    </view>
+    <view class="bottom" wx:if="{{!loading}}">
+        <button class="main_btn" bindtap="openDoor">开门</button>
+    </view>
+    <view class="loading box" wx:else hover-class="none" hover-stop-propagation="false">
+        <view>
+            <image class="loadImg" src="../../image/loading.png" mode="widthFix" lazy-load="true"></image>
+            <view class="tips">请放入补货商品并随手关门</view>
+        </view>
+    </view>
+</view>

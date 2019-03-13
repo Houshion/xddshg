@@ -1,0 +1,16 @@
+.list .listMacno,
+.list .listTime {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list .iconfont {
+    color: #de6d40;
+    background: #fbece6;
+    border-radius: 50%;
+    width: 42rpx;
+    height: 42rpx;
+    margin-right: 24rpx;
+    font-size:14px;
+}

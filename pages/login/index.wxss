@@ -1,0 +1,57 @@
+#login {
+    background: #ffffff;
+    min-height: 100%;
+}
+
+.logoView .logo {
+    width: 200rpx;
+    height: 200rpx;
+    display: block;
+    margin: 50rpx 0;
+}
+
+#login .userType button.btnHover {
+    color: #ffffff;
+    background: #ffd9ca
+}
+
+#login .userType button.active,
+#login .loginBox button.loginBtn {
+    color: #ffffff;
+    background: #cd663d
+}
+
+#login .userType button.buss {
+    border-top-left-radius: 10rpx
+}
+
+#login .userType button.repl {
+    border-top-right-radius: 10rpx
+}
+
+.loginBox .iconfont {
+    font-size: 24px;
+    margin-right: 20rpx
+}
+
+.loginBox .username,
+.loginBox .password {
+    border-bottom: solid 1px #cccccc
+}
+
+#login .radio {
+    width: 50%;
+}
+
+#login .radio .hide {
+    display: none;
+}
+
+#login button {
+    width: 100%;
+    border-radius: 0;
+    background: #f5f5f5;
+    font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #cd663d
+}

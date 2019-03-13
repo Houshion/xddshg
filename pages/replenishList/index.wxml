@@ -1,0 +1,26 @@
+<wxs module='filter' src='../../utils/tools.wxs'></wxs>
+<view id="replenish" class="p15">
+    <view class="list bg-ff br12 p15 mb15" wx:for="{{replenishList}}">
+        <navigator url="/pages/replenishDetail/index?" hover-class="none">
+            <view class="listMacno">
+                <view class="iconfont box icontimclocktime"></view>
+                <view class="msg">
+                    <span>设备编号：</span>
+                    <span class="cc">{{item.macno}}</span>
+                </view>
+            </view>
+            <view class="listTime mt8">
+                <view class="iconfont box icontimclocktime"></view>
+                <view class="msg">
+                    <span>补货时间：</span>
+                    <span class="cc">{{filter.format(item.close_time,'Y-m-d H:i')}}</span>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view class="loading box" wx:if="{{loading}}" hover-class="none" hover-stop-propagation="false">
+        <view class="box">
+            <image class="loadImg" src="../../image/loading.png" mode="widthFix" lazy-load="true"></image>
+        </view>
+    </view>
+</view>
