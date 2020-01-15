@@ -2,60 +2,43 @@ const app = getApp()
 Page({
   data: {
     orderMessage: {
-      orderNo: 215615639,
-      address: "广东省东莞市南城区高盛科技园303",
-      time: "2019-01-01 10:00",
-      replenisher: "欧少"
+
     },
-    goodsList: [{
-      title: "红牛",
-      replenishNum: 10,
-      status: "+",
-      img: "/image/loading.png"
+    form: {
+      api_name: "ReplenishDetail",
+      'order_id': '',
     },
-    {
-      title: "红牛",
-      replenishNum: 10,
-      status: "+",
-      img: "/image/loading.png"
-    },
-    {
-      title: "红牛",
-      replenishNum: 10,
-      status: "+",
-      img: "/image/loading.png"
-    }
-    ]
+    loading: false
   },
 
   onLoad: function (e) {
     const _this = this
+    _this.setData({
+      'form.order_id': e.id,
+    })
+    _this.getInit()
   },
 
   onShow: function () {
     const _this = this
 
   },
-  refresh: function () {
-    wx.showModal({
-      showCancel: false,
-      confirmColor: "#de6d40",
-      title: '提示',
-      content: '请正确放置商品',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+  getInit: function () {
+    const _this = this;
+    _this.setData({
+      'loading': true
+    })
+    app.wxRequest('/wxsite/Shop/api_web', _this.data.form, function (res) {
+      wx.hideLoading()
+      console.log(JSON.stringify(res.data.data))
+      if (res.data.code == 1) {
+        _this.setData({
+          'orderMessage': res.data.data,
+          'loading': false
+        })
+      } else {
+        app.tools.toast(res.data.msg, "none")
       }
     })
   },
-  confirm: function () {
-    wx.showToast({
-      title: '补货成功',
-      icon: 'success',
-      duration: 2000
-    })
-  }
 })

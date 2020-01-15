@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/test/index",
+    "pages/index/index",
     "pages/login/index",
     "pages/open/index",
     "pages/replenish/index",
@@ -8,7 +10,6 @@
     "pages/changePass/index",
     "pages/orderDetail/index",
     "pages/goodsList/index",
-    "pages/index/index",
     "pages/deviceList/index",
     "pages/orderList/index",
     "pages/replenishDetail/index"

@@ -4,17 +4,15 @@
             <view class="deviceMacno">
                 <span>设备编号：</span>
                 <span class="cc">{{deviceMsg.macno}}</span>
-                <span class="ml15 {{deviceMsg.status_name=='缺货'?'cerr':'csuc'}}">
-                    {{deviceMsg.status_name}}
-                </span>
+                <span class="ml15 cerr">{{deviceMsg.status_name}}</span>
             </view>
             <view class="deviceAddress">
                 <span>设备地址：</span>
                 <span class="cc">{{deviceMsg.address}}</span>
             </view>
         </view>
-        <view class="status ta-right {{deviceMsg.status==0?'cerr':'csuc'}}">
-            {{deviceMsg.status==0?'离线':'在线'}}
+        <view class="status ta-right {{deviceMsg.line=='异常'?'cerr':'csuc'}}">
+            {{deviceMsg.line}}
         </view>
     </view>
     <view class="mt15 goodsList bg-ff br12 p15">

@@ -23,7 +23,7 @@ Page({
       {
         title: '补货记录',
         icon: 'icontag',
-        to: '/pages/replenish/index',
+        to: '/pages/replenishList/index',
         status: true
       },
       {
@@ -39,8 +39,8 @@ Page({
 
   onLoad: function (e) {
     const _this = this;
-    console.log(e)
-    let type = e.type;
+    let type = app.getUserType();
+    console.log(type)
     _this.setData({
       mainData: app.getUserMsg(),
       type: type,
@@ -51,14 +51,42 @@ Page({
       })
     } else {
       _this.setData({
-        'list[1].status': false
+        'list[2].status': false
       })
     }
   },
 
   onShow: function () {
     const _this = this
-
+    let shop = {
+      url: '/wxsite/Shop/api',
+      form: {
+        api_name: 'homeDetail',
+        token: app.getToken(),
+        shop_id: app.getUserMsg().shop_id,
+      }
+    };
+    let replenish = {
+      url: '/wxsite/Device/api',
+      form: {
+        api_name: 'ReplenishHome',
+        token: app.getToken(),
+        shop_id: app.getUserMsg().staff_user_id,
+      }
+    }
+    app.wxRequest(
+      app.getUserType() == 1 ? shop.url : replenish.url,
+      app.getUserType() == 1 ? shop.form : replenish.form,
+      function (res) {
+        if (res.data.code == 1) {
+          _this.setData({
+            'mainData': res.data.data
+          })
+        } else {
+          app.tools.toast(res.data.msg, "none")
+        }
+        wx.hideLoading()
+      })
   },
   logout: function () {
     wx.clearStorage();

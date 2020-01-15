@@ -1,7 +1,7 @@
 <wxs module='filter' src='../../utils/tools.wxs'></wxs>
 <view id="replenish" class="p15">
     <view class="list bg-ff br12 p15 mb15" wx:for="{{replenishList}}">
-        <navigator url="/pages/replenishDetail/index?" hover-class="none">
+        <navigator url="/pages/replenishDetail/index?id={{item.order_id}}" hover-class="none">
             <view class="listMacno">
                 <view class="iconfont box icontimclocktime"></view>
                 <view class="msg">
@@ -13,11 +13,13 @@
                 <view class="iconfont box icontimclocktime"></view>
                 <view class="msg">
                     <span>补货时间：</span>
-                    <span class="cc">{{filter.format(item.close_time,'Y-m-d H:i')}}</span>
+                    <span class="cc">{{item.close_time}}</span>
+                    <!-- <span class="cc">{{filter.format(item.close_time,'Y-m-d H:i')}}</span> -->
                 </view>
             </view>
         </navigator>
     </view>
+    <view class="ta-center" wx:if="{{replenishList.length<=0}}">--暂无记录--</view>
     <view class="loading box" wx:if="{{loading}}" hover-class="none" hover-stop-propagation="false">
         <view class="box">
             <image class="loadImg" src="../../image/loading.png" mode="widthFix" lazy-load="true"></image>

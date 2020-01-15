@@ -26,6 +26,7 @@
                 <input type="password" placeholder="请输入密码" value="{{form.pass}}" bindinput="getPass" />
             </view>
             <button form-type="submit" class="mt40 p10 loginBtn br12" plain>登录</button>
+            <button form-type="submit" class="mt40 p10 loginBtn br12" plain>{{login}}</button>
         </view>
     </form>
 </view>

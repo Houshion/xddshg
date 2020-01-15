@@ -9,13 +9,17 @@ Page({
     isScanner: 1
   },
 
+  onReady() {
+    if (this.data.isScanner == 1) {
+      this.scan()
+    }
+  },
+
   onShow: function () {
     // wx.showLoading({
     //   title: '加载中',
     // })
-    if (this.data.isScanner == 1) {
-      // this.scan()
-    }
+
 
   },
   onHide() {
@@ -29,13 +33,19 @@ Page({
    */
   scan: function () {
     const _this = this;
+    console.log(_this)
     wx.scanCode({
       success: (res) => {
-        console.log('扫码结果', res)
-        // let macno = res.result
-        let macno = app.tools.getUrl("macno", res.result)
-        console.log(macno)
 
+        console.log(789)
+        let macno = app.tools.getUrl("macno", res.result)
+        wx.setStorageSync('macno', macno)
+        wx.redirectTo({
+          url: '/pages/open/index?macno=' + macno
+        })
+      },
+      fail: res => {
+        console.log(res, 654)
       }
     })
   },

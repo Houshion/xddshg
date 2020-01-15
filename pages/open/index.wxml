@@ -3,7 +3,7 @@
         <view class="logo">
             <image class="logoImg" src="../../image/logo.png" mode="widthFix" lazy-load="true"></image>
         </view>
-        <view class="macno">设备编号：{{macno}}</view>
+        <view class="macno">设备编号：{{form.macno}}</view>
     </view>
     <view class="bottom" wx:if="{{!loading}}">
         <button class="main_btn" bindtap="openDoor">开门</button>

@@ -30,6 +30,7 @@
             </view>
         </navigator>
     </view>
+    <view class="ta-center" wx:if="{{orderList.length<=0}}">--暂无记录--</view>
     <view class="loading box" wx:if="{{loading}}" hover-class="none" hover-stop-propagation="false">
         <view class="box">
             <image class="loadImg" src="../../image/loading.png" mode="widthFix" lazy-load="true"></image>

@@ -3,15 +3,20 @@ Page({
     data: {
         form: {
             api_name: "savePass",
-            user_id: app.getUserMsg().shop_id,
+            user_id: '',
             usedpass: '',
             newpass: '',
-            repeatpass: ''
+            repeatpass: '',
+            type: ''
         }
     },
 
     onLoad: function (e) {
         const _this = this
+        this.setData({
+            'form.user_id': app.getUserMsg().staff_user_id ? app.getUserMsg().staff_user_id : app.getUserMsg().shop_id,
+            'form.type': app.getUserType() == 1 ? 1 : '',
+        })
     },
     onShow: function () {
         const _this = this
@@ -27,7 +32,11 @@ Page({
             })
             return false;
         }
+        wx.showLoading({
+            title: '请稍候...',
+        })
         app.wxRequest('/wxsite/Public/api', _this.data.form, function (res) {
+            wx.hideLoading()
             if (res.data.code == 1) {
                 wx.showToast({
                     title: res.data.msg,

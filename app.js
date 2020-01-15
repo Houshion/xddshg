@@ -31,11 +31,14 @@ App({
 
   //请求接口
   wxRequest: function (url, data, successCB, failCB) {
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     const _this = this
     let requestUrl = _this.globalData.dlcurl + url
     let requestMethod = 'POST'
     let requestConType = 'application/x-www-form-urlencoded'
-    // data.token = wx.getStorageSync('token')
+    data.token = wx.getStorageSync('token')
     wx.request({
       url: requestUrl,
       header: {
@@ -51,6 +54,7 @@ App({
         }
       },
       fail: function (res) {
+        wx.hideLoading()
         typeof failCB == 'function' && failCB(res)
       }
     })
@@ -171,6 +175,14 @@ App({
 
   getUserType: function () {
     return wx.getStorageSync('userType')
+  },
+
+  getMacno: function () {
+    return wx.getStorageSync('macno')
+  },
+
+  getOrderNum: function () {
+    return wx.getStorageSync('order_number')
   }
 
 })

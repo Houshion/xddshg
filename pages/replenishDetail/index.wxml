@@ -1,7 +1,8 @@
+<wxs module='filter' src='../../utils/tools.wxs'></wxs>
 <view id="replenish" class="p15">
     <view class="mb15 goodsList bg-ff br12 p15">
         <view class="mb15">商品明细</view>
-        <view class="list ptb15 bt-e5 flex-cfs" wx:for="{{goodsList}}">
+        <view class="list ptb15 bt-e5 flex-cfs" wx:for="{{orderMessage.goods}}">
             <view class="image">
                 <image class="goodsImg" src="{{item.img}}" mode="widthFix" lazy-load="true"></image>
             </view>
@@ -9,7 +10,7 @@
                 <view class="title">{{item.title}}</view>
                 <view class="num">
                     <span class="cc">补货数量：</span>
-                    {{item.status+item.replenishNum}}
+                    {{item.num}}
                 </view>
             </view>
         </view>
@@ -17,19 +18,20 @@
     <view class="deviceMsg bg-ff br12 p15">
         <view class="orderNo">
             <span>订单编号：</span>
-            <span class="cc">{{orderMessage.orderNo}}</span>
+            <span class="cc">{{orderMessage.order_number}}</span>
         </view>
         <view class="deviceAddress">
             <span>设备地址：</span>
-            <span class="cc">{{orderMessage.address}}</span>
+            <span class="cc">{{orderMessage.addr}}</span>
         </view>
         <view class="replenishTime">
             <span>补货时间：</span>
-            <span class="cc">{{orderMessage.time}}</span>
+            <!-- <span class="cc">{{orderMessage.close_time}}</span> -->
+            <span class="cc">{{filter.format(orderMessage.close_time,'Y-m-d H:i')}}</span>
         </view>
         <view class="replenisher">
             <span>补货员　：</span>
-            <span class="cc">{{orderMessage.replenisher}}</span>
+            <span class="cc">{{orderMessage.nickname}}</span>
         </view>
     </view>
 </view>

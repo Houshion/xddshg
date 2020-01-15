@@ -3,14 +3,15 @@ Page({
   data: {
     form: {
       api_name: '',
-      mobile: '18820129123',
-      pass: '123456'
+      mobile: '',//'17875913101',
+      pass: '',//'123456'
     },
     loginType: [
       { name: '商家登录', value: '1', checked: true },
       { name: '补货登录', value: '2', checked: false },
     ],
     type: 1,
+    login: "登录",
   },
 
   onLoad: function (e) {
@@ -70,7 +71,11 @@ Page({
         })
         break;
     }
+    wx.showLoading({
+      title: '登录中...',
+    })
     app.wxRequest('/wxsite/Public/api', _this.data.form, function (res) {
+      wx.hideLoading()
       if (res.data.code == 1) {
         wx.setStorageSync('userType', _this.data.type)
         wx.setStorageSync('token', res.data.data.token)
@@ -81,7 +86,7 @@ Page({
           duration: 2000
         })
         setTimeout(() => {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/index/index?type=' + app.getUserType()
           })
         }, 2000);

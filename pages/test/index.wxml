@@ -1,0 +1,2 @@
+<view>{{name}}</view>
+<button bindtap="click">点击我更改名字吧</button>

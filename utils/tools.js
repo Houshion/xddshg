@@ -268,6 +268,48 @@ function error_tip(msg) {
   })
 }
 
+function socket(data, call) {
+  // 检查是否有正在连接的socket，有则关闭
+  wx.onSocketOpen(function () {
+    console.log('有链接中的socket')
+    wx.closeSocket()
+  })
+  // 关闭socket连接后回调事件
+  wx.onSocketClose(function (res) {
+    console.log('WebSocket 已关闭！')
+  })
+  // 连接socket
+  wx.connectSocket({
+    url: 'wss://sdxddshgwss.https.xiaozhuschool.com'
+  })
+  wx.onSocketError(err => {
+    call({ code: -1, msg: "连接服务器失败", data: err })
+  })
+  // 连接成功后回调事件
+  wx.onSocketOpen(function () {
+    // 反复连接空指令保持socket连接状态
+    console.log("链接socket成功")
+    reConnect();
+    // 发送指令
+    wx.sendSocketMessage({
+      data: data
+    })
+  })
+  // 收到socket服务器返回信息事件
+  wx.onSocketMessage(res => {
+    call({ code: 1, data: res })
+  })
+}
+
+function reConnect() {
+  // 设置30秒定时器，反复推送空指令，保持socket连接状态
+  setInterval(() => {
+    wx.sendSocketMessage({
+      data: "connectinfo_88888",
+    })
+  }, 30000);
+}
+
 module.exports = {
   checkPhone: checkMobileAndTel, //手机验证
   trim: trim, //去左右空格
@@ -284,5 +326,6 @@ module.exports = {
   search_key: search_key, //保存搜索关键字
   format: format,
   timeStamp: timeStamp,
+  socket: socket, // 小程序连接socket
   error_tip: error_tip //请求接口错误提示
 }

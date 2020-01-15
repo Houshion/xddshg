@@ -3,7 +3,7 @@
         <image class="bacImg" src="/image/bac.png" mode="widthFix" lazy-load="true" binderror="" bindload="">
             <cover-view class="mainData" wx:if="{{type==1}}">
                 <cover-view class="value">{{mainData.todayEarnings}}</cover-view>
-                <cover-view class="title">今日应收金额</cover-view>
+                <cover-view class="title">今日营收金额</cover-view>
             </cover-view>
             <cover-view class="mainData" wx:else>
                 <cover-view class="value">{{mainData.device_count}}</cover-view>
@@ -22,8 +22,8 @@
         </image>
     </view>
     <view class="list">
-        <view class="listItem br12 flex-csb bg-ff" wx:for="{{list}}" wx:if="{{item.status}}">
-            <navigator url="{{item.to}}" redirect style="width:100%;">
+        <navigator url="{{item.to}}" hover-class="none" style="width:100%;" wx:for="{{list}}" wx:if="{{item.status}}">
+            <view class="listItem br12 flex-csb bg-ff">
                 <view class="left flex-cfs">
                     <view class="icon box">
                         <view class="iconfont {{item.icon}}"></view>
@@ -33,8 +33,8 @@
                 <view class="right">
                     <view class="iconfont iconright"></view>
                 </view>
-            </navigator>
-        </view>
+            </view>
+        </navigator>
     </view>
     <view class="logout mt18">
         <button class="main_btn" hover-class="btnHover" bindtap="logout">退出登录</button>

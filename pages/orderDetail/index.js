@@ -13,18 +13,7 @@ Page({
       "total_price": "0.01",
       "macno": "867732032893661",
       "goods": [
-        {
-          "price": "0.01",
-          "num": 1,
-          "title": "冰露",
-          "img": "http://gdsgshg.app.xiaozhuschool.com/public///uploads/imgs/20180620/aadbc9e90554ea54aaa0ceba6106f64c.png"
-        },
-        {
-          "price": "0.01",
-          "num": 1,
-          "title": "冰露",
-          "img": "http://gdsgshg.app.xiaozhuschool.com/public///uploads/imgs/20180620/aadbc9e90554ea54aaa0ceba6106f64c.png"
-        }
+
       ],
       "mobile": ""
     },
@@ -37,12 +26,11 @@ Page({
 
   onLoad: function (e) {
     const _this = this
-    let orderId = e.id;
-    _this.getOrder(orderId)
+    console.log(e)
     _this.setData({
-      "form.order_id": 8
-      // "form.order_id": orderId
+      "form.order_id": e.id
     })
+    _this.getOrder()
   },
 
   onShow: function () {
@@ -52,8 +40,13 @@ Page({
   getOrder: function () {
     const _this = this;
     app.wxRequest('/wxsite/Shop/api', _this.data.form, function (res) {
+      wx.hideLoading()
       if (res.data.code == 1) {
-        console.log(res.data)
+        _this.setData({
+          'order': res.data.data
+        })
+      } else {
+        app.tools.toast(res.data.msg, "none")
       }
     })
   },
